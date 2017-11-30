@@ -42,8 +42,9 @@
 
   height: 100%; // ie-fix
 
+  // edited by onursimsek94
   .rbc-header {
-    border-bottom: 1px solid @cell-border;
+    // border-bottom: 1px solid @cell-border;
   }
 
   .rbc-header + .rbc-header {
@@ -75,12 +76,29 @@
   }
 }
 
+// edited by onursimsek94
 .rbc-date-cell {
-  padding-right: 5px;
-  text-align: right;
+  // padding-right: 5px;
+  // text-align: right;
+  padding-top: 5px; // added
+  padding-left: 10px; // added
+  text-align: left; // added
+  color: #757575; // added
 
+  // edited by onursimsek94
   &.rbc-now {
-    font-weight: bold;
+    // font-weight: bold;
+
+    > a { // added
+      &, &:active, &:visited {
+        // text-decoration: none;
+        background-color: #4285f4 !important; // added
+        color: white !important; // added
+        margin-top: 3px !important; // added
+        padding: 5px !important; // added
+        border-radius: 100% !important; // added
+      }
+    }
   }
 
   > a {

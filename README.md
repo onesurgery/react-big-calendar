@@ -1,15 +1,17 @@
-react-big-calendar
+react-big-calendar-like-google
 ========================
 
 An events calendar component built for React and made for modern browsers (read: IE10+) and uses flexbox over the classic tables-ception approach.
 
 [__DEMO and Docs__](http://intljusticemission.github.io/react-big-calendar/examples/index.html)
 
+Forked from [react-big-calendar](https://github.com/intljusticemission/react-big-calendar)
+
 Inspired by [Full Calendar](http://fullcalendar.io/).
 
 ## Use and Setup
 
-`npm install react-big-calendar --save`
+`npm install react-big-calendar-like-google --save`
 
 Include `react-big-calendar/lib/css/react-big-calendar.css` for styles.
 

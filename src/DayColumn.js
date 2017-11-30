@@ -195,6 +195,10 @@ class DayColumn extends React.Component {
       if (eventPropGetter)
         var { style: xStyle, className } = eventPropGetter(event, start, end, _isSelected)
 
+      // edited by onursimsek94
+      if (event.bgColor) // added
+        var bgColorStyle = {backgroundColor: event.bgColor} // added
+
       let { height, top, width, xOffset } = style
 
       return (
@@ -205,7 +209,8 @@ class DayColumn extends React.Component {
               top: `${top}%`,
               height: `${height}%`,
               [isRtl ? 'right' : 'left']: `${Math.max(0, xOffset)}%`,
-              width: `${width}%`
+              width: `${width}%`,
+              ...bgColorStyle // added
             }}
             title={(typeof label === 'string' ? label + ': ' : '') + title }
             onClick={(e) => this._select(event, e)}

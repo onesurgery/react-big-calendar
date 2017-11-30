@@ -21,7 +21,7 @@ import CustomView from './demos/customView';
 import Timeslots from './demos/timeslots';
 import Dnd from './demos/dnd';
 
-let demoRoot = 'https://github.com/intljusticemission/react-big-calendar/tree/master/examples/demos'
+let demoRoot = 'https://github.com/onursimsek94/react-big-calendar/tree/master/examples/demos'
 
 const Example = React.createClass({
   getInitialState(){
@@ -49,6 +49,11 @@ const Example = React.createClass({
         <div className="container">
           <h1>Big Calendar <i className='fa fa-calendar'/></h1>
           <p>such enterprise, very business.</p>
+            <p>Forked from&nbsp;
+              <a target='_blank' href="https://github.com/intljusticemission/react-big-calendar">
+                intljusticemission/react-big-calendar
+              </a>
+          </p>
           <p>
             <a href="#intro">
               <i className='fa fa-play'/> Getting started
@@ -58,7 +63,7 @@ const Example = React.createClass({
               <i className='fa fa-book'/> API documentation
             </a>
             {' | '}
-            <a target='_blank' href="https://github.com/intljusticemission/react-big-calendar">
+            <a target='_blank' href="https://github.com/onursimsek94/react-big-calendar">
               <i className='fa fa-github'/> github
             </a>
           </p>

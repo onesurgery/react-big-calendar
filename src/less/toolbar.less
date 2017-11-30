@@ -9,10 +9,14 @@
   margin-bottom: 10px;
   font-size: 16px;
 
+  // edited by onursimsek94
   .rbc-toolbar-label {
     flex-grow:1;
     padding: 0 10px;
-    text-align: center;
+    // text-align: center;
+    text-align: left; // added
+    margin-top: 10px; // added
+    color: #767676; // added
   }
 
   & button {
@@ -58,9 +62,13 @@
   }
 }
 
+// edited by onursimsek94
 .rbc-btn-group {
-  display: inline-block;
+  // display: inline-block;
+  display: inline-flex; // added
   white-space: nowrap;
+  cursor: pointer; // added
+  user-select: none; // added
 
   > button:first-child:not(:last-child) {
     border-top-right-radius: 0;
