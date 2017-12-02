@@ -1,6 +1,6 @@
 {
   "name": "react-big-calendar-like-google",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Forked from Jason Quense <monastic.panic@gmail.com> (https://github.com/intljusticemission/react-big-calendar). Changed calendar style! with events",
   "author": "Onur Şimşek <onur.simsek1994@hotmail.com>",
   "repository": "onursimsek94/react-big-calendar",
