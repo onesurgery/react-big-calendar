@@ -70,7 +70,6 @@ class Toolbar extends React.Component {
 
   // edited by onursimsek94
   viewNamesGroup(messages) {
-    debugger
     let viewNames = this.props.views
     const view = this.props.view
 

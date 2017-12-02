@@ -24,7 +24,6 @@ let propTypes = {
 }
 
 class EventCell extends React.Component {
-  debugger
   render() {
     let {
         className
