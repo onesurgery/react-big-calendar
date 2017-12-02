@@ -310,7 +310,7 @@ export default class TimeGrid extends Component {
           key={i}
           className={cn(
             'rbc-header',
-            dates.isToday(date) && 'rbc-today',
+            dates.isToday(date) && 'rbc-today rbc-now', // edited by onursimsek94
           )}
           style={segStyle(1, this.slots)}
         >

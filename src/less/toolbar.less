@@ -69,6 +69,11 @@
   white-space: nowrap;
   cursor: pointer; // added
   user-select: none; // added
+  margin-top: 15px; // added
+
+  > div:first-child:not(:last-child) { // added
+    margin-top: 2px;
+  }
 
   > button:first-child:not(:last-child) {
     border-top-right-radius: 0;

@@ -245,7 +245,7 @@ class MonthView extends React.Component {
     let HeaderComponent = this.props.components.header || Header
 
     return dates.range(first, last, 'day').map((day, idx) => (
-      <div key={'header_' + idx} className="rbc-header" style={segStyle(1, 7)}>
+      <div key={'header_' + idx} className={`rbc-header ${cn(dates.eq(day, new Date(), 'day') && 'rbc-today rbc-now')}`} style={segStyle(1, 7)}> {/* edited by onursimsek94 */}
         <HeaderComponent
           date={day}
           label={localizer.format(day, format, culture)}

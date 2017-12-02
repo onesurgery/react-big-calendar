@@ -2,7 +2,7 @@
 
 You can install `react-big-calendar` via [npm](https://www.npmjs.com/):
 
-    npm i --save react-big-calendar
+    npm i --save react-big-calendar-like-google
 
 Styles can be found at: `react-big-calendar/lib/css/react-big-calendar.css`, and should be included on the page
 with the calendar component.
