@@ -13,7 +13,7 @@ Inspired by [Full Calendar](http://fullcalendar.io/).
 
 `npm install react-big-calendar-like-google --save`
 
-Include `react-big-calendar/lib/css/react-big-calendar.css` for styles.
+Include `react-big-calendar-like-google/lib/css/react-big-calendar.css` for styles.
 
 ## Run examples locally
 
@@ -32,7 +32,7 @@ Regardless of your choice, you __must__ choose a localizer to use this library:
 #### Moment.js
 
 ```js
-import BigCalendar from 'react-big-calendar';
+import BigCalendar from 'react-big-calendar-like-google';
 import moment from 'moment';
 
 BigCalendar.setLocalizer(
@@ -43,7 +43,7 @@ BigCalendar.setLocalizer(
 #### Globalize.js v0.1.1
 
 ```js
-import BigCalendar from 'react-big-calendar';
+import BigCalendar from 'react-big-calendar-like-google';
 import globalize from 'globalize';
 
 BigCalendar.setLocalizer(
