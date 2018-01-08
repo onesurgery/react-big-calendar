@@ -4,7 +4,7 @@ You can install `react-big-calendar` via [npm](https://www.npmjs.com/):
 
     npm i --save react-big-calendar-like-google
 
-Styles can be found at: `react-big-calendar/lib/css/react-big-calendar.css`, and should be included on the page
+Styles can be found at: `react-big-calendar-like-google/lib/css/react-big-calendar.css`, and should be included on the page
 with the calendar component.
 
 Date internationalization and localization is __hard__ and `react-big-calendar` doesn't even attempt to
@@ -16,7 +16,7 @@ Choose the localizer that best suits your needs, or write your own. Whatever you
 before you can use the calendar (you only need to set it up once).
 
 ```jsx
-import BigCalendar from 'react-big-calendar';
+import BigCalendar from 'react-big-calendar-like-google';
 import moment from 'moment';
 
 // Setup the localizer by providing the moment (or globalize) Object

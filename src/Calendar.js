@@ -17,6 +17,7 @@ import message from './utils/messages'
 import moveDate from './utils/move';
 import VIEWS from './Views';
 import Toolbar from './Toolbar';
+import LeftMenu from './LeftMenu';
 import EventWrapper from './EventWrapper';
 import BackgroundWrapper from './BackgroundWrapper';
 
@@ -54,6 +55,10 @@ let now = new Date();
  * function `endAccessor` that returns the end date + 1 day for those events that end at midnight.
  */
 class Calendar extends React.Component {
+  constructor() {
+    super()
+    this.state = { leftMenuOpen: false }
+  }
   static propTypes = {
 
     /**
@@ -224,6 +229,26 @@ class Calendar extends React.Component {
      * Determines whether the toolbar is displayed
      */
     toolbar: PropTypes.bool,
+
+    /**
+     * A callback fired when left menu closed
+     */
+    onLeftMenuClose: PropTypes.func,
+
+    /**
+     * Determines whether the leftMenu is displayed
+     */
+    leftMenu: PropTypes.bool,
+
+    /**
+     * An array of event objects to display on the calendar
+     */
+    leftMenuData: PropTypes.arrayOf(PropTypes.object),
+
+    /**
+     * A callback fired when left menu items visibility changed.
+     */
+    onLeftMenuItemVisibilityChange: PropTypes.func,
 
     /**
      * Show truncated events in an overlay when you click the "+_x_ more" link.
@@ -546,6 +571,7 @@ class Calendar extends React.Component {
     elementProps: {},
     popup: false,
     toolbar: true,
+    leftMenu: false,
     view: views.MONTH,
     views: [views.MONTH, views.WEEK, views.DAY, views.AGENDA],
     date: now,
@@ -598,6 +624,8 @@ class Calendar extends React.Component {
   render() {
     let {
        view, toolbar, events
+      , leftMenu
+      , leftMenuData
       , culture
       , components = {}
       , formats = {}
@@ -641,10 +669,18 @@ class Calendar extends React.Component {
             view={view}
             views={names}
             label={label}
+            onLeftMenu={leftMenu && this.handleLeftMenu}
             onViewChange={this.handleViewChange}
             onNavigate={this.handleNavigate}
             messages={messages}
           />
+        }
+        {leftMenu &&
+          <LeftMenu
+            open={this.state.leftMenuOpen}
+            data={leftMenuData}
+            onItemVisibilityChange={(data) => { this.props.onLeftMenuItemVisibilityChange(data) }}
+            onClose={this.handleLeftMenu} />
         }
         <View
           ref='view'
@@ -667,6 +703,14 @@ class Calendar extends React.Component {
       </div>
     );
   }
+
+  handleLeftMenu = () => {
+    this.setState({leftMenuOpen: !this.state.leftMenuOpen}, () => {
+      if (this.props.onLeftMenuClose && !this.state.leftMenuOpen) {
+        this.props.onLeftMenuClose()
+      }
+    })
+  };
 
   handleNavigate = (action, newDate) => {
     let { view, date, onNavigate, ...props } = this.props;

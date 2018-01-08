@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
 import { navigate } from './utils/constants';
-import {MuiThemeProvider, RaisedButton, FloatingActionButton, DropDownMenu, MenuItem} from 'material-ui'
-import HardwareKeyboardArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left'
-import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right'
+import {MuiThemeProvider, RaisedButton, FloatingActionButton, DropDownMenu, MenuItem} from 'material-ui';
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+import HardwareKeyboardArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
+import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
 class Toolbar extends React.Component {
   static propTypes = {
@@ -14,6 +15,7 @@ class Toolbar extends React.Component {
     ).isRequired,
     label: PropTypes.node.isRequired,
     messages: PropTypes.object,
+    onLeftMenu: PropTypes.func,
     onNavigate: PropTypes.func.isRequired,
     onViewChange: PropTypes.func.isRequired,
   }
@@ -26,22 +28,41 @@ class Toolbar extends React.Component {
       <div className='rbc-toolbar'>
         <MuiThemeProvider>
           <div className='rbc-btn-group'>
-            <div
-              onClick={this.navigate.bind(null, navigate.TODAY)}
-            >
-              <RaisedButton label={messages.today} />&nbsp;
+            <div onClick={this.props.onLeftMenu} style={{display: this.props.onLeftMenu ? 'inherit' : 'none'}}>
+              <FloatingActionButton
+                mini
+                style={{boxShadow: 'none'}}
+                backgroundColor='none'
+                iconStyle={{color: 'rgb(117, 117, 117)', fill: 'rgb(117, 117, 117)'}}>
+                <NavigationMenu />
+              </FloatingActionButton>&nbsp;
+            </div>
+            <div onClick={this.navigate.bind(null, navigate.TODAY)}>
+              <RaisedButton
+                label={messages.today}
+                style={{boxShadow: 'none', borderRadius: '5px'}}
+                buttonStyle={{backgroundColor: 'rgb(245, 245, 245)', width: '90%', borderRadius: '5px'}}
+                labelStyle={{color: 'rgb(74, 74, 74)'}} />&nbsp;
               {/* {messages.today}&nbsp; */}
             </div>
-            <div
-              onClick={this.navigate.bind(null, navigate.PREVIOUS)}
-            >
-              <FloatingActionButton mini ><HardwareKeyboardArrowLeft /></FloatingActionButton>&nbsp;
+            <div onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
+              <FloatingActionButton
+                mini 
+                style={{boxShadow: 'none'}}
+                backgroundColor='none'
+                iconStyle={{color: 'rgb(117, 117, 117)', fill: 'rgb(117, 117, 117)'}}>
+                <HardwareKeyboardArrowLeft />
+              </FloatingActionButton>&nbsp;
               {/* {messages.previous}&nbsp; */}
             </div>
-            <div
-              onClick={this.navigate.bind(null, navigate.NEXT)}
-            >
-              <FloatingActionButton mini ><HardwareKeyboardArrowRight /></FloatingActionButton>
+            <div onClick={this.navigate.bind(null, navigate.NEXT)}>
+              <FloatingActionButton
+                mini 
+                style={{boxShadow: 'none'}}
+                backgroundColor='none'
+                iconStyle={{color: 'rgb(117, 117, 117)', fill: 'rgb(117, 117, 117)'}}>
+                <HardwareKeyboardArrowRight />
+              </FloatingActionButton>
               {/* {messages.next} */}
             </div>
           </div>
