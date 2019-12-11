@@ -6,8 +6,9 @@ import getScrollLeft from 'dom-helpers/query/scrollLeft';
 
 import EventCell from './EventCell';
 import { isSelected } from './utils/selection';
-import localizer from './localizer';
 import { elementType, dateFormat } from './utils/propTypes';
+import moment from 'moment';
+import CustomScrollbar from "./utils/CustomScrollbar";
 
 const propTypes = {
   position: PropTypes.object,
@@ -20,7 +21,7 @@ const propTypes = {
 }
 class Popup extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     let { popupOffset = 5 } = this.props
       , { top, left, width, height } = getOffset(this.refs.root)
       , viewBottom = window.innerHeight + getScrollTop(window)
@@ -52,23 +53,42 @@ class Popup extends React.Component {
       left: left - leftOffset,
       minWidth: width + (width / 2)
     }
-
     return (
       <div ref='root' style={style} className='rbc-overlay'>
         <div className='rbc-overlay-header'>
-          { localizer.format(props.slotStart, props.dayHeaderFormat, props.culture) }
+          <div className='scheduler-popup-date'>
+            {
+              moment(props.slotStart).format("DD")
+            }
+          </div>
+          <div className='scheduler-popup-week-date'>
+            {
+              moment(props.slotStart).format("dddd")
+            }
+          </div>
         </div>
-        {
-          events.map((event, idx) =>
-            <EventCell key={idx}
-              {...props}
-              event={event}
-              eventComponent={eventComponent}
-              eventWrapperComponent={eventWrapperComponent}
-              selected={isSelected(event, selected)}
-            />
-          )
-        }
+        <div className="scroll-wrapper"
+          style={{
+            height:'200px'
+          }}
+        >
+          <CustomScrollbar>
+            <div className="scroll-inner">
+              {
+                events.map((event, idx) =>
+                  <EventCell 
+                    key={idx}
+                    {...props}
+                    event={event}
+                    eventComponent={eventComponent}
+                    eventWrapperComponent={eventWrapperComponent}
+                    selected={isSelected(event, selected)}
+                  />
+                )
+              }
+            </div>
+          </CustomScrollbar>
+        </div>
       </div>
     )
   }
@@ -76,4 +96,4 @@ class Popup extends React.Component {
 
 Popup.propTypes = propTypes;
 
-export default Popup;
+export default Popup;;
