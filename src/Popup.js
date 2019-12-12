@@ -69,14 +69,14 @@ class Popup extends React.Component {
         </div>
         <div className="scroll-wrapper"
           style={{
-            height:'200px'
+            height: '200px'
           }}
         >
           <CustomScrollbar>
             <div className="scroll-inner">
               {
                 events.map((event, idx) =>
-                  <EventCell 
+                  <EventCell
                     key={idx}
                     {...props}
                     event={event}
@@ -96,4 +96,4 @@ class Popup extends React.Component {
 
 Popup.propTypes = propTypes;
 
-export default Popup;;
+export default Popup;
