@@ -85,6 +85,7 @@
     "lodash": "^4.17.4",
     "material-ui": "^0.19.4",
     "prop-types": "^15.5.8",
+    "react-custom-scrollbars": "^4.2.1",
     "react-overlays": "^0.7.0",
     "react-prop-types": "^0.4.0",
     "uncontrollable": "^3.3.1 || ^4.0.0",
